@@ -1,0 +1,5 @@
+timestamp,age,sex,weight_kg,sleep_hrs,rhr_bpm,soreness_before,mental_stress,calories_in,protein_g,carbs_g,predicted_goal,recommended_duration,recommended_intensity,workout_completion_pct,actual_intensity,difficulty_feedback,recovery_feeling,soreness_next_day_expected,would_repeat
+2025-11-13 10:05:41.293369,30,M,75.0,7.0,60,2,2,2000,100,250,Strength,56.359536908336906,4.804929303539597,100,6.0,Just Right 💪,2,2,"Yes, definitely! ✅"
+2025-11-13 10:19:28.418688,30,M,75.0,7.0,60,2,2,2000,100,250,Strength,56.35953690833691,4.804929303539597,100,6.0,Just Right,4,2,Probably
+2025-11-13 10:22:29.286389,24,M,75.0,6.0,63,1,2,2000,100,250,Strength,47.22209230776277,4.794176663249029,100,2.0,Too Easy,4,1,Yes
+2025-11-13 10:39:30.525258,30,M,75.0,7.0,60,2,2,2000,100,250,Strength,56.35953690833691,4.804929303539596,100,3.0,Just Right,4,1,Probably
