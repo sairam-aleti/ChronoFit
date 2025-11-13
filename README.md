@@ -1,6 +1,6 @@
 # ChronoFit MVAA - AI-Powered Workout Recommendation System
 
-**Live App:** https://chronofit.streamlit.app (after deployment)
+Personalized workout recommendation engine powered by machine learning, featuring continuous learning from user feedback and cloud-based MongoDB storage.
 
 ## 🎯 Features
 
@@ -49,26 +49,33 @@ Visit: http://localhost:8501
 
 ## 📦 Deployment to Streamlit Cloud
 
-See `DEPLOYMENT_GUIDE.md` for complete step-by-step instructions.
-
-### Quick Deploy Steps:
-
-1. **Push to GitHub**
+### Step 1: Push to GitHub
 ```bash
+cd ChronoFit
 git add .
-git commit -m "Initial commit"
-git push -u origin main
+git commit -m "Update: Fixed notebook evaluation metrics"
+git push
 ```
 
-2. **Deploy on Streamlit Cloud**
-   - Go to https://share.streamlit.io
-   - Click "New app"
-   - Select repository, branch, and main file
-   - Deploy!
+### Step 2: Deploy on Streamlit Cloud
+1. Go to https://share.streamlit.io
+2. Click "New app"
+3. Select your repository (sairam-aleti/ChronoFit), branch (main), and file (chronofit_app.py)
+4. Click "Deploy!"
 
-3. **Add Secrets in Streamlit Cloud**
-   - App settings → Secrets
-   - Add MONGODB_URI and USDA_API_KEY
+### Step 3: Configure Secrets in Streamlit Cloud
+1. Once deployed, click app settings (gear icon)
+2. Go to "Secrets"
+3. Add your environment variables:
+
+```toml
+MONGODB_URI = "mongodb+srv://username:password@cluster0.mongodb.net/chronofit?retryWrites=true&w=majority"
+USDA_API_KEY = "your_usda_api_key"
+```
+
+4. Save - app will restart with secrets loaded
+
+**App will be live at:** https://chronofit.streamlit.app
 
 ## 🏗️ Architecture
 
@@ -113,50 +120,31 @@ User Input (Age, Weight, Sleep, RHR, etc.)
 | `mvva_goal_encoder_v2.joblib` | Goal encoding model |
 | `requirements.txt` | Python dependencies |
 | `runtime.txt` | Python version for Streamlit Cloud |
-| `DEPLOYMENT_GUIDE.md` | Detailed deployment instructions |
 
-## 🔑 Required API Keys & Accounts
+## 🔑 Required Setup
 
-### 1. MongoDB Atlas (Free)
-- Create account: https://www.mongodb.com/cloud/atlas
-- Create M0 cluster (free)
-- Create database user (Database Access → Add Database User)
-- Network Access → Add IP Address → `0.0.0.0/0` (allow all for Streamlit Cloud)
-- Get connection string: Click "Connect" → copy connection string
-- Replace `<USERNAME>` and `<PASSWORD>` with your database user credentials
+### MongoDB Atlas (Free M0 Cluster)
+1. Create account: https://www.mongodb.com/cloud/atlas
+2. Create M0 cluster
+3. Create database user in "Database Access"
+4. Configure "Network Access" → Add `0.0.0.0/0` (allow all IPs for Streamlit Cloud)
+5. Get connection string from "Connect" button
+6. Replace `<USERNAME>` and `<PASSWORD>` in connection string
 
-### 2. USDA Food Data Central API (Free)
-- Sign up: https://api.nal.usda.gov/signup
-- Get API key for food nutrient lookup
-- Rate limit: 1000 requests/day (sufficient for MVP)
+### USDA Food Data Central API (Free)
+1. Sign up: https://api.nal.usda.gov/signup
+2. Copy your API key
+3. Add to `.streamlit/secrets.toml` as `USDA_API_KEY`
 
-## ⚙️ Configuration
+## ⚙️ Local Configuration
 
-### Environment Variables (.streamlit/secrets.toml)
-
+Create `.streamlit/secrets.toml`:
 ```toml
-MONGODB_URI = "mongodb+srv://<USERNAME>:<PASSWORD>@cluster.mongodb.net/chronofit?retryWrites=true&w=majority"
-USDA_API_KEY = "<YOUR_USDA_API_KEY>"
+MONGODB_URI = "mongodb+srv://<USERNAME>:<PASSWORD>@cluster0.mongodb.net/chronofit?retryWrites=true&w=majority"
+USDA_API_KEY = "<YOUR_API_KEY>"
 ```
 
-**Get your MongoDB URI:**
-1. Go to MongoDB Atlas → Connect → Drivers
-2. Copy connection string and replace `<USERNAME>` and `<PASSWORD>` with your database user credentials
-
-**Note:** `.streamlit/secrets.toml` is in `.gitignore` - never commit this file!
-
-### Optional Streamlit Config (.streamlit/config.toml)
-
-```toml
-[theme]
-primaryColor = "#FF4500"
-backgroundColor = "#0d0d0d"
-secondaryBackgroundColor = "#1a1a1a"
-textColor = "#ffffff"
-
-[server]
-maxUploadSize = 200
-```
+**Note:** This file is in `.gitignore` and never committed to GitHub for security.
 
 ## 📊 Model Training Data
 
@@ -212,12 +200,6 @@ App live at chronofit.streamlit.app
 
 MIT
 
-## 👤 Author
-
-Your Name
-
----
-
 ## 🎓 Learning Resources
 
 - [Streamlit Docs](https://docs.streamlit.io)
@@ -227,4 +209,4 @@ Your Name
 
 ---
 
-**Questions?** Check `DEPLOYMENT_GUIDE.md` for detailed step-by-step instructions.
+**Get Started:** Follow the Quick Start section to run locally, then deploy to Streamlit Cloud using the deployment steps above.
