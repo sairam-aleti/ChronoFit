@@ -120,9 +120,10 @@ User Input (Age, Weight, Sleep, RHR, etc.)
 ### 1. MongoDB Atlas (Free)
 - Create account: https://www.mongodb.com/cloud/atlas
 - Create M0 cluster (free)
-- Create database user
-- Get connection string: `mongodb+srv://user:pass@cluster.mongodb.net/database`
-- Whitelist Streamlit Cloud IPs (or allow all: `0.0.0.0/0`)
+- Create database user (Database Access → Add Database User)
+- Network Access → Add IP Address → `0.0.0.0/0` (allow all for Streamlit Cloud)
+- Get connection string: Click "Connect" → copy connection string
+- Replace `<USERNAME>` and `<PASSWORD>` with your database user credentials
 
 ### 2. USDA Food Data Central API (Free)
 - Sign up: https://api.nal.usda.gov/signup
@@ -134,9 +135,13 @@ User Input (Age, Weight, Sleep, RHR, etc.)
 ### Environment Variables (.streamlit/secrets.toml)
 
 ```toml
-MONGODB_URI = "mongodb+srv://user:password@cluster.mongodb.net/chronofit?retryWrites=true&w=majority"
-USDA_API_KEY = "your_usda_api_key"
+MONGODB_URI = "mongodb+srv://<USERNAME>:<PASSWORD>@cluster.mongodb.net/chronofit?retryWrites=true&w=majority"
+USDA_API_KEY = "<YOUR_USDA_API_KEY>"
 ```
+
+**Get your MongoDB URI:**
+1. Go to MongoDB Atlas → Connect → Drivers
+2. Copy connection string and replace `<USERNAME>` and `<PASSWORD>` with your database user credentials
 
 **Note:** `.streamlit/secrets.toml` is in `.gitignore` - never commit this file!
 
