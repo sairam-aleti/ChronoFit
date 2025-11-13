@@ -69,8 +69,8 @@ git push
 3. Add your environment variables:
 
 ```toml
-MONGODB_URI = "mongodb+srv://username:password@cluster0.mongodb.net/chronofit?retryWrites=true&w=majority"
-USDA_API_KEY = "your_usda_api_key"
+MONGODB_URI = "<your-mongodb-connection-string>"
+USDA_API_KEY = "<your-usda-api-key>"
 ```
 
 4. Save - app will restart with secrets loaded
@@ -140,8 +140,8 @@ User Input (Age, Weight, Sleep, RHR, etc.)
 
 Create `.streamlit/secrets.toml`:
 ```toml
-MONGODB_URI = "mongodb+srv://<USERNAME>:<PASSWORD>@cluster0.mongodb.net/chronofit?retryWrites=true&w=majority"
-USDA_API_KEY = "<YOUR_API_KEY>"
+MONGODB_URI = "<your-mongodb-connection-string>"
+USDA_API_KEY = "<your-api-key>"
 ```
 
 **Note:** This file is in `.gitignore` and never committed to GitHub for security.
