@@ -2,17 +2,17 @@
 
 Personalized workout recommendation engine powered by machine learning, featuring continuous learning from user feedback and cloud-based MongoDB storage.
 
-## 🎯 Features
+## Features
 
-- 🏋️ AI-powered personalized workout recommendations based on recovery metrics
-- 📊 Post-workout feedback loop for continuous learning
-- ☁️ Cloud-based MongoDB storage for persistent data across sessions
-- 🧠 Automatic model retraining every 3 user feedbacks
-- 🥗 Intelligent multi-source nutrient lookup (USDA + Indian APIs + local database)
-- 📱 Professional minimal UI optimized for Streamlit Cloud
-- 🔄 Background threading for non-blocking model retraining
+-  AI-powered personalized workout recommendations based on recovery metrics
+-  Post-workout feedback loop for continuous learning
+-  Cloud-based MongoDB storage for persistent data across sessions
+-  Automatic model retraining every 3 user feedbacks
+-  Intelligent multi-source nutrient lookup (USDA + Indian APIs + local database)
+-  Professional minimal UI optimized for Streamlit Cloud
+-  Background threading for non-blocking model retraining
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.11+
@@ -47,7 +47,7 @@ streamlit run chronofit_app.py
 
 Visit: http://localhost:8501
 
-## 📦 Deployment to Streamlit Cloud
+##  Deployment to Streamlit Cloud
 
 ### Step 1: Push to GitHub
 ```bash
@@ -77,7 +77,7 @@ USDA_API_KEY = "<your-usda-api-key>"
 
 **App will be live at:** https://chronofit.streamlit.app
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 User Input (Age, Weight, Sleep, RHR, etc.)
@@ -97,7 +97,7 @@ User Input (Age, Weight, Sleep, RHR, etc.)
   Updated Model Files
 ```
 
-## 🧠 Continuous Learning
+##  Continuous Learning
 
 1. User enters fitness metrics and receives personalized workout recommendation
 2. After workout, user provides feedback (completion %, intensity, recovery feeling, etc.)
@@ -107,7 +107,7 @@ User Input (Age, Weight, Sleep, RHR, etc.)
 6. Updated models save to cloud storage
 7. Next user session loads updated models → improved recommendations
 
-## 📂 Files Overview
+##  Files Overview
 
 | File | Purpose |
 |------|---------|
@@ -121,7 +121,7 @@ User Input (Age, Weight, Sleep, RHR, etc.)
 | `requirements.txt` | Python dependencies |
 | `runtime.txt` | Python version for Streamlit Cloud |
 
-## 🔑 Required Setup
+##  Required Setup
 
 ### MongoDB Atlas (Free M0 Cluster)
 1. Create account: https://www.mongodb.com/cloud/atlas
@@ -136,7 +136,7 @@ User Input (Age, Weight, Sleep, RHR, etc.)
 2. Copy your API key
 3. Add to `.streamlit/secrets.toml` as `USDA_API_KEY`
 
-## ⚙️ Local Configuration
+##  Local Configuration
 
 Create `.streamlit/secrets.toml`:
 ```toml
@@ -146,7 +146,7 @@ USDA_API_KEY = "<your-api-key>"
 
 **Note:** This file is in `.gitignore` and never committed to GitHub for security.
 
-## 📊 Model Training Data
+##  Model Training Data
 
 - **Base**: 20,000 synthetic workout records
 - **Age Distribution**: Bimodal (28±6 years and 48±8 years)
@@ -155,7 +155,7 @@ USDA_API_KEY = "<your-api-key>"
 - **User Feedback**: 2x weighted during retraining for rapid adaptation
 - **Retraining Trigger**: Every 3 new user feedbacks
 
-## 🔄 Deployment Workflow
+##  Deployment Workflow
 
 ```
 Local Development
@@ -171,7 +171,7 @@ Streamlit Cloud auto-deploys
 App live at chronofit.streamlit.app
 ```
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 | Issue | Solution |
 |-------|----------|
@@ -181,14 +181,14 @@ App live at chronofit.streamlit.app
 | Retraining takes too long | Background threading prevents UI blocking - check Streamlit logs |
 | Nutrient lookup returns 0 | Multiple data sources tried (USDA → Indian API → local database) |
 
-## 📈 Performance Notes
+##  Performance Notes
 
 - **First load**: 10-15 seconds (models load + UI renders)
 - **Feedback retraining**: Happens in background thread (~2-3 seconds)
 - **Model update frequency**: Every 3 feedbacks (adaptive)
 - **Streamlit Cloud**: Free tier sufficient for MVP (3 concurrent sessions)
 
-## 🔐 Security
+##  Security
 
 - MongoDB connection string stored only in Streamlit Cloud secrets
 - `.streamlit/secrets.toml` never committed to Git
@@ -196,11 +196,11 @@ App live at chronofit.streamlit.app
 - No user data stored locally on client
 - Background threads isolated from main UI thread
 
-## 📝 License
+##  License
 
 MIT
 
-## 🎓 Learning Resources
+##  Learning Resources
 
 - [Streamlit Docs](https://docs.streamlit.io)
 - [MongoDB Atlas Setup](https://docs.atlas.mongodb.com)
