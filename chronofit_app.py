@@ -579,8 +579,8 @@ def preprocess_and_predict(input_df: pd.DataFrame, model, preprocessor, goal_cla
     """PHASE 2: Preprocessing and running the MVAA model for prediction. Also predicts goal."""
     try:
         # GOAL is no longer an input - it's predicted!
-        original_features = ['Age', 'Sex', 'Weight_kg', 'SLEEP_HRS', 'RHR_BPM', 'SORENESS', 
-                             'MENTAL_STRESS', 'CALORIES_IN', 'PROTEIN_G', 'CARBS_G', 'NUTR_CONF_SCORE']
+        original_features = ['age', 'sex', 'weight_kg', 'sleep_hrs', 'rhr_bpm', 'soreness', 
+                             'mental_stress', 'calories_in', 'protein_g', 'carbs_g', 'nutrition_confidence']
         X_unprocessed = input_df[original_features]
         X_processed = preprocessor.transform(X_unprocessed)
         
@@ -2077,13 +2077,13 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 # --- Assemble Final Input DataFrame ---
 final_input_data = {
-    'Age': [user_age], 'Sex': [user_sex], 'Weight_kg': [user_weight],
-    'SLEEP_HRS': [user_sleep], 'RHR_BPM': [user_rhr], 'SORENESS': [user_soreness],
-    'MENTAL_STRESS': [user_stress],
-    'CALORIES_IN': [nutr_features['CALORIES_IN']],
-    'PROTEIN_G': [nutr_features['PROTEIN_G']],
-    'CARBS_G': [nutr_features['CARBS_G']],
-    'NUTR_CONF_SCORE': [nutr_features['NUTR_CONF_SCORE']]
+    'age': [user_age], 'sex': [user_sex], 'weight_kg': [user_weight],
+    'sleep_hrs': [user_sleep], 'rhr_bpm': [user_rhr], 'soreness': [user_soreness],
+    'mental_stress': [user_stress],
+    'calories_in': [nutr_features['CALORIES_IN']],
+    'protein_g': [nutr_features['PROTEIN_G']],
+    'carbs_g': [nutr_features['CARBS_G']],
+    'nutrition_confidence': [nutr_features['NUTR_CONF_SCORE']]
 }
 
 input_df = pd.DataFrame(final_input_data)
